@@ -1,0 +1,27 @@
+{
+  "name": "task-tracker-backend",
+  "version": "0.0.1",
+  "description": "Backend of a simple task tracker",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaroslavian/task-tracker.git"
+  },
+  "keywords": [
+    "task",
+    "tracker"
+  ],
+  "author": "Romanov Y.A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaroslavian/task-tracker/issues"
+  },
+  "homepage": "https://github.com/yaroslavian/task-tracker#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
