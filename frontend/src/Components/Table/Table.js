@@ -25,7 +25,7 @@ export class Table extends React.Component {
       if(dataSet) {
          items = dataSet.map((elem, index) => {
             return (
-               <div key={index}>
+               <div key={index} className="data-table-row">
                   <h4>{elem.name}</h4>
                   <em>{elem.text}</em>
                </div>
@@ -33,6 +33,6 @@ export class Table extends React.Component {
          });
       } 
 
-      return <div>{items}</div>;
+      return <div className="data-table">{items}</div>;
    }
 }

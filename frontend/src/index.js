@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Table} from './Components/Table/Table';
+import css from './style.styl';
 
 const APP_CONTAINER = document.getElementById('app');
 
