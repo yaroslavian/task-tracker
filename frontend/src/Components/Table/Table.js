@@ -1,4 +1,5 @@
 import React from 'react';
+import {API} from '../../API.js';
 
 export class Table extends React.Component {
    constructor(props) {
@@ -7,15 +8,13 @@ export class Table extends React.Component {
          dataSet: null
       };
    }
+   
    componentDidMount() {
-      fetch('/get-tasks-list')
-         .then((res) => {
-            return res.json();
-         }).then((dataSet) => {
-            this.setState({
-               dataSet: JSON.parse(dataSet)
-            });
+      API.getTasksList((dataSet) => {
+         this.setState({
+            dataSet: JSON.parse(dataSet)
          });
+      });
    }
 
    render () {
