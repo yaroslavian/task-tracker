@@ -25,7 +25,7 @@ export class Table extends React.Component {
          items = dataSet.map((elem, index) => {
             return (
                <div key={index} className="data-table-row">
-                  <h4>{elem.name}</h4>
+                  <h4>{elem.title}</h4>
                   <em>{elem.text}</em>
                </div>
             );
