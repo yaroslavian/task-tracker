@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
 const PORT = 3000;
 
+const MongoClient = require('mongodb').MongoClient;
 const DB_URL = 'mongodb://localhost:27017';
 const DB_NAME = 'tasks';
 
