@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Table} from './Components/Table/Table';
 import {AddButton} from './Components/AddButton/AddButton';
+import {AddTaskForm} from './Components/AddTaskForm/AddTaskForm';
 import css from './style.styl';
 
 const APP_CONTAINER = document.getElementById('app');
@@ -37,7 +38,7 @@ class App extends React.Component {
             break;
 
          case 'add-form': 
-            content = <div>Add task form would be here</div>; 
+            content = <AddTaskForm setPage={this.setPage}/>; 
             break;
          default:
       }

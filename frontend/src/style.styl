@@ -25,6 +25,24 @@ body
    color: base-blue
    border: 2px solid base-blue
    padding: 5px
-   &:hover {
+   &:hover
       background-color: #051648;
-   }
+   
+.addTask-form 
+   width: 300px
+   display: flex
+   flex-direction: column
+   input, textarea, button 
+      margin: 5px 0
+      color: base-blue
+      background-color: #000
+      border: 2px solid base-blue
+
+   textarea
+      height: 300px;
+      flex-grow: 1;
+            
+   button 
+      cursor: pointer
+      &:hover
+         background-color: #051648;
