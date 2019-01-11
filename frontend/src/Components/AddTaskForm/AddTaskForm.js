@@ -1,5 +1,5 @@
 import React from 'react';
-import {API} from '../../API';
+import {API} from '../../API.ts';
 
 export class AddTaskForm extends React.Component {
    constructor(props) {
@@ -21,7 +21,7 @@ export class AddTaskForm extends React.Component {
       const {taskTitle, taskText} = this.state;
       const reqBody = {taskText, taskTitle};
 
-      API.addTask(reqBody, ()=> {
+      API.addTask(reqBody, () => {
          this.props.setPage('main');
       });
    }

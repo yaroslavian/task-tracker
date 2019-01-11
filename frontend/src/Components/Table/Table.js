@@ -1,5 +1,5 @@
 import React from 'react';
-import {API} from '../../API.js';
+import {API} from '../../API.ts';
 
 export class Table extends React.Component {
    constructor(props) {
