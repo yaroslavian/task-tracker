@@ -4,15 +4,15 @@
  * @param cb 
  */
 function getTasksList(cb: (dataSet:string) => void): void {
-   const URL: string = '/get-tasks-list';
+   const URL: string = '/api/get-tasks-list';
 
-   fetch(URL)
-      .then((res) => {
+   fetch(URL, {
+      method: 'POST'
+   }).then((res) => {
          return res.json();
-      })
-      .then((dataSet) => {
+   }).then((dataSet) => {
          cb(dataSet);
-      });
+   });
 };
 
 /**
@@ -23,7 +23,7 @@ function getTasksList(cb: (dataSet:string) => void): void {
  */
 function addTask (reqBody: {taskTitle: string, taskText: string, [key:string]: string}, cb: () => void): void {
    const formData = new FormData();
-   const URL: string = '/addTask';
+   const URL: string = '/api/add-task';
 
    for(let key in reqBody) {
       if(reqBody.hasOwnProperty(key)) {
@@ -47,7 +47,7 @@ function addTask (reqBody: {taskTitle: string, taskText: string, [key:string]: s
  * @param cb 
  */
 function deleteTask(taskId: string, cb: () => void): void {
-   const URL: string = '/deleteTask';
+   const URL: string = '/api/delete-task';
    const formData = new FormData();
 
    formData.append('taskId', taskId);
