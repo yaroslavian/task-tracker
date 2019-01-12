@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Table} from './Components/Table/Table';
-import {AddButton} from './Components/AddButton/AddButton';
+import {Button} from './Components/Button/Button';
 import {AddTaskForm} from './Components/AddTaskForm/AddTaskForm';
 import css from './style.styl';
 
@@ -31,7 +31,7 @@ class App extends React.Component {
          case 'main':
             content = (
                <div>
-                  <AddButton onClick={() => {this.setPage('add-form')}} />
+                  <Button text="Add task" onClick={() => {this.setPage('add-form')}} />
                   <Table />   
                </div>
             );
