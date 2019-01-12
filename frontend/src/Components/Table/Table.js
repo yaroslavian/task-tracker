@@ -1,5 +1,6 @@
 import React from 'react';
 import {API} from '../../API.ts';
+import {TaskBlock} from '../TaskBlock/TaskBlock';
 
 export class Table extends React.Component {
    constructor(props) {
@@ -7,12 +8,23 @@ export class Table extends React.Component {
       this.state = {
          dataSet: null
       };
+      this.handleDeleteTask = this.handleDeleteTask.bind(this);
    }
    
    componentDidMount() {
       API.getTasksList((dataSet) => {
          this.setState({
             dataSet: JSON.parse(dataSet)
+         });
+      });
+   }
+
+   handleDeleteTask(taskId) {
+      API.deleteTask(taskId, () => {
+         API.getTasksList((dataSet) => {
+            this.setState({
+               dataSet: JSON.parse(dataSet)
+            });
          });
       });
    }
@@ -24,10 +36,13 @@ export class Table extends React.Component {
       if(dataSet) {
          items = dataSet.map((elem, index) => {
             return (
-               <div key={index} className="data-table-row">
-                  <h4>{elem.title}</h4>
-                  <em>{elem.text}</em>
-               </div>
+               <TaskBlock 
+                  key={index}
+                  deleteHandler={this.handleDeleteTask}
+                  taskId={elem._id}
+                  title={elem.title}
+                  text={elem.text}
+               />
             );
          });
       } 
