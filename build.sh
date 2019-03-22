@@ -1,7 +1,7 @@
 #!/bin/bash
 cd frontend
 echo '--- Compiling frontend files ---'
-npm run start
+npm run build
 echo '--- Removing old static files from server ---'
 rm ../backend/public/* -rv
 echo '--- Copying new compiled static files to server ---'
