@@ -1,56 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {API} from '../../API.ts';
 
-export class AddTaskForm extends React.Component {
-   constructor(props) {
-      super(props);
+/** Form for creating new task */
+export const AddTaskForm = (props) => {
 
-      this.state = {
-         taskTitle: '',
-         taskText: ''
-      };
-      
-      this.handleAdd = this.handleAdd.bind(this);
-      this.handleCancel = this.handleCancel.bind(this);
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleTextAreaChange = this.handleTextAreaChange.bind(this);
-   }
+   const [taskTitle, setTaskTitle] = useState('');
+   const [taskText, setTaskText] = useState('');
 
-   handleAdd(e) {
+   const handleAdd = (e) => {
       e.preventDefault();
-      const {taskTitle, taskText} = this.state;
       const reqBody = {taskText, taskTitle};
 
       API.addTask(reqBody, () => {
-         this.props.setPage('main');
+         props.setPage('main');
       });
    }
 
-   handleCancel(e) {
+   const handleCancel = (e) => {
       e.preventDefault();
-      this.props.setPage('main');
+      props.setPage('main');
    }
 
-   handleInputChange(e) {
-      this.setState({
-         taskTitle: e.target.value 
-      });
+   const handleInputChange = (e) => {
+      setTaskTitle(e.target.value);
    }
 
-   handleTextAreaChange(e) {
-      this.setState({
-         taskText: e.target.value 
-      });
+   const handleTextAreaChange = (e) => {
+      setTaskText(e.target.value);
    }
    
-   render() {
-      return (
-         <form className="addTask-form">
-            <input type="text" placeholder="Task title" onChange={this.handleInputChange} value={this.state.taskTitle}></input>
-            <textarea placeholder="Task text" onChange={this.handleTextAreaChange} value={this.state.taskText}></textarea>
-            <button onClick={this.handleAdd}>Add</button>
-            <button onClick={this.handleCancel}>Cancel</button>
-         </form>
-      );
-   }
-}
+   return (
+      <form className="addTask-form">
+         <input type="text" placeholder="Task title" onChange={handleInputChange} value={taskTitle}></input>
+         <textarea placeholder="Task text" onChange={handleTextAreaChange} value={taskText}></textarea>
+         <button onClick={handleAdd}>Add</button>
+         <button onClick={handleCancel}>Cancel</button>
+      </form>
+   );
+};
