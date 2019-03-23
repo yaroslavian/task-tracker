@@ -3,9 +3,9 @@ import {API} from '../../API.ts';
 import {TaskBlock} from '../TaskBlock/TaskBlock';
 
 /** Main table component */
-export const Table = (props) => {
+export const Table = () => {
    const [dataSet, setDataSet] = useState(null);
-   
+
    useEffect(() => {
       API.getTasksList((dataSet) => {
          setDataSet(JSON.parse(dataSet));
@@ -25,7 +25,7 @@ export const Table = (props) => {
    if(dataSet) {
       items = dataSet.map((elem, index) => {
          return (
-            <TaskBlock 
+            <TaskBlock
                key={index}
                deleteHandler={handleDeleteTask}
                taskId={elem._id}

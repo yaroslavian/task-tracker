@@ -13,11 +13,11 @@ class App extends React.Component {
 
       this.state = {
          currentPage: 'main'
-      }
+      };
 
       this.setPage = this.setPage.bind(this);
    }
-   
+
    setPage(page) {
       this.setState({
          currentPage: page
@@ -31,21 +31,21 @@ class App extends React.Component {
          case 'main':
             content = (
                <div>
-                  <Button text="Add task" onClick={() => {this.setPage('add-form')}} />
-                  <Table />   
+                  <Button text="Add task" onClick={() => { this.setPage('add-form'); }} />
+                  <Table />
                </div>
             );
             break;
 
-         case 'add-form': 
-            content = <AddTaskForm setPage={this.setPage}/>; 
+         case 'add-form':
+            content = <AddTaskForm setPage={this.setPage}/>;
             break;
          default:
       }
 
       return (
          <div>
-            <h3 className="main-title" onClick={() => {this.setPage('main')}}>
+            <h3 className="main-title" onClick={() => { this.setPage('main'); }}>
                Welcome to the task tracker
             </h3>
             {content}

@@ -14,21 +14,21 @@ export const AddTaskForm = (props) => {
       API.addTask(reqBody, () => {
          props.setPage('main');
       });
-   }
+   };
 
    const handleCancel = (e) => {
       e.preventDefault();
       props.setPage('main');
-   }
+   };
 
    const handleInputChange = (e) => {
       setTaskTitle(e.target.value);
-   }
+   };
 
    const handleTextAreaChange = (e) => {
       setTaskText(e.target.value);
-   }
-   
+   };
+
    return (
       <form className="addTask-form">
          <input type="text" placeholder="Task title" onChange={handleInputChange} value={taskTitle}></input>
