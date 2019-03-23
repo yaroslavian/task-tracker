@@ -23,5 +23,9 @@ module.exports = {
         "react"
     ],
     "rules": {
+       "quotes": ["error", "single"],
+       "semi": ["error", "always"],
+       "no-trailing-spaces": "error",
+       "comma-dangle": ["error", "never"]
     }
 };
