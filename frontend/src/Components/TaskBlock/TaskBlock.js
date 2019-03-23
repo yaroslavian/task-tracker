@@ -2,26 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '../Button/Button';
 
-export class TaskBlock extends React.Component {
-   constructor(props) {
-      super(props);
+/** Task block */
+export const TaskBlock = (props) => {
+   const {title, text} = props;
 
-      this.handleDeleteTask = this.handleDeleteTask.bind(this);
+   const handleDeleteTask = () => {
+      props.deleteHandler(props.taskId);
    }
    
-   handleDeleteTask() {
-      this.props.deleteHandler(this.props.taskId);
-   }
-   
-   render() {
-      return (
-         <div className="data-table-row">
-            <Button text="Delete task" onClick={this.handleDeleteTask}/>
-            <h4>{this.props.title}</h4>
-            <em>{this.props.text}</em>
-         </div>
-      );
-   }
+   return (
+      <div className="data-table-row">
+         <Button text="Delete task" onClick={handleDeleteTask}/>
+         <h4>{title}</h4>
+         <em>{text}</em>
+      </div>
+   );
 }
 
 TaskBlock.propTypes = {
