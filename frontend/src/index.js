@@ -1,38 +1,35 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import {Table} from './Components/Table/Table';
-import {Button} from './Components/Button/Button';
 import {AddTaskForm} from './Components/AddTaskForm/AddTaskForm';
 import './style.styl';
 
 const APP_CONTAINER = document.getElementById('app');
 
+/** Main component */
 const App = () => {
-   const [currentPage, setPage] = useState('main');
-   let content;
-
-   switch(currentPage) {
-      case 'main':
-         content = (
-            <div>
-               <Button text="Add task" onClick={() => { setPage('add-form'); }} />
-               <Table />
-            </div>
-         );
-         break;
-
-      case 'add-form':
-         content = <AddTaskForm setPage={setPage}/>;
-         break;
-   }
+   const renderTopMenu = () => {
+      return (
+         <div className="topMenu">
+            <NavLink className="topMenu-item" to="/">Task list</NavLink>
+            <NavLink className="topMenu-item" to="/add-Task">AddTask</NavLink>
+         </div>
+      );
+   };
 
    return (
-      <div>
-         <h3 className="main-title" onClick={() => { setPage('main'); }}>
-            Welcome to the task tracker
-         </h3>
-         {content}
-      </div>
+      <Router>
+         <div>
+            <NavLink to="/" className="main-title">
+               <h3 className="main-title">Welcome to the task tracker</h3>
+            </NavLink>
+            {renderTopMenu()}
+            <Route path="/add-task" component={AddTaskForm} />
+            <Route path="/" exact component={Table} />
+         </div>
+
+      </Router>
    );
 };
 

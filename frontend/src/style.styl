@@ -5,9 +5,22 @@ body
    color: base-blue
 
 .main-title
+   color: base-blue
    cursor: pointer
+   text-decoration: none
    &:hover
       text-decoration: underline
+
+.topMenu-item
+   margin-right: 10px;
+   padding: 5px
+   color: base-blue
+   background-color: #000
+   border: 2px solid base-blue
+   cursor: pointer
+   text-decoration: none
+   &:hover
+      background-color: #051648
 
 .data-table
    display: flex
@@ -15,27 +28,30 @@ body
    justify-content: flex-start
 
    &-row
-      flex: 1 0 150px
       display: grid
       grid-gap: 10px
       grid-template-rows: 80px 200px
+      flex: 1 0 150px
       margin: 10px
       padding: 10px
       border: 1px solid base-blue
 
-.add-button
-   cursor: pointer
-   background-color: #000
-   color: base-blue
-   border: 2px solid base-blue
+.button
+   margin-right: 10px;
    padding: 5px
+   color: base-blue
+   background-color: #000
+   border: 2px solid base-blue
+   cursor: pointer
+   text-decoration: none
    &:hover
-      background-color: #051648;
-   
+      background-color: #051648
+
 .addTask-form 
-   width: 300px
+   margin-top: 10px
    display: flex
    flex-direction: column
+   width: 300px
    input, textarea, button 
       margin: 5px 0
       color: base-blue

@@ -1,12 +1,13 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-   template: "./src/index.html",
-   filename: "./index.html"
- });
+   template: './src/index.html',
+   filename: './index.html'
+});
 
 module.exports = {
    devServer: {
+      historyApiFallback: true,
       proxy: {
          '/api': 'http://localhost:3000'
       }
@@ -17,7 +18,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
-               loader: "babel-loader"
+               loader: 'babel-loader'
             }
          },
          {
@@ -25,8 +26,8 @@ module.exports = {
             use: ['style-loader', 'css-loader']
          },
          {
-            test: /\.styl$/, 
-            loader: ['style-loader', 'css-loader', 'stylus-loader'] 
+            test: /\.styl$/,
+            loader: ['style-loader', 'css-loader', 'stylus-loader']
          },
          {
             test: /\.ts$/,
@@ -35,4 +36,4 @@ module.exports = {
       ]
    },
    plugins: [htmlPlugin]
-}
+};
