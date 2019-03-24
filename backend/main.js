@@ -15,7 +15,6 @@ app.use(express.static('public'));
 
 app.post('/api/:methodName', upload.none(), (req, res) => {
    const {methodName} = req.params;
-   
    if(methodName) {
       let APIMethodName = methodName.split('-').reduce((acc, elem) => {
          return acc + (elem.charAt(0).toUpperCase() + elem.slice(1));

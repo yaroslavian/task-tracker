@@ -21,12 +21,12 @@ const addTask = (req, res) => {
 
    if(taskTitle && taskText) {
       const client = new MongoClient(DB_URL);
-   
+
       client.connect(err => {
          const db = client.db(DB_NAME);
          const collection = db.collection('tasks');
          collection.insert({
-            title: taskTitle, 
+            title: taskTitle,
             text: taskText
          });
          client.close();
@@ -40,7 +40,7 @@ const deleteTask = (req, res) => {
 
    if(taskId) {
       const client = new MongoClient(DB_URL);
-   
+
       client.connect(err => {
          const db = client.db(DB_NAME);
          const collection = db.collection('tasks');
