@@ -33,7 +33,7 @@ const addTask = (req, res) => {
          res.json(JSON.stringify({status: 'ok'}));
       });
    }
-}
+};
 
 const deleteTask = (req, res) => {
    const {taskId} = req.body;
@@ -51,6 +51,6 @@ const deleteTask = (req, res) => {
          res.json(JSON.stringify({status: 'ok'}));
       });
    }
-}
+};
 
 module.exports = {getTasksList, addTask, deleteTask};
