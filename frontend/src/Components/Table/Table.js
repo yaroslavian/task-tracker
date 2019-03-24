@@ -18,7 +18,7 @@ export const Table = () => {
             setDataSet(JSON.parse(dataSet));
          });
       });
-   }
+   };
 
    let items = null;
 
@@ -34,7 +34,7 @@ export const Table = () => {
             />
          );
       });
-   } 
+   }
 
    return <div className="data-table">{items}</div>;
-}
+};
