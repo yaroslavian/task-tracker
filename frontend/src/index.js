@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Table} from './Components/Table/Table';
 import {Button} from './Components/Button/Button';
 import {AddTaskForm} from './Components/AddTaskForm/AddTaskForm';
-import css from './style.styl';
+import './style.styl';
 
 const APP_CONTAINER = document.getElementById('app');
 
