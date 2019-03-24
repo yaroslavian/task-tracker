@@ -16,6 +16,11 @@ module.exports = {
       "quotes": ["error", "single"],
       "semi": ["error", "always"],
       "no-trailing-spaces": "error",
-      "comma-dangle": ["error", "never"]
+      "comma-dangle": ["error", "never"],
+      "guard-for-in": "error",
+      "camelcase": "error",
+      "indent": ["error", 3, { "SwitchCase": 1 }],
+      "no-useless-constructor": "error",
+      "no-duplicate-imports": "error"
     }
 };
