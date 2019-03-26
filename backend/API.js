@@ -16,6 +16,25 @@ const getTasksList = (req, res) => {
    });
 };
 
+const getTask = (req, res) => {
+   const {taskId} = req.body;
+
+   if(taskId) {
+      const client = new MongoClient(DB_URL);
+
+      client.connect(err => {
+         const db = client.db(DB_NAME);
+         const collection = db.collection('tasks');
+         collection.find({
+            _id: new mongodb.ObjectID(taskId)
+         }).toArray((err, docs) => {
+            res.json(JSON.stringify(docs));
+         });
+         client.close();
+      });
+   }
+};
+
 const addTask = (req, res) => {
    const {taskTitle, taskText} = req.body;
 
@@ -53,4 +72,4 @@ const deleteTask = (req, res) => {
    }
 };
 
-module.exports = {getTasksList, addTask, deleteTask};
+module.exports = {getTasksList, addTask, deleteTask, getTask};

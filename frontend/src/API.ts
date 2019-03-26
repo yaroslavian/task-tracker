@@ -16,6 +16,27 @@ function getTasksList(cb: (dataSet:string) => void): void {
 };
 
 /**
+ * Get task by ID
+ * 
+ * @param cb 
+ */
+function getTask(taskId: string, cb: (dataSet: string) => void): void {
+   const formData = new FormData();
+   const URL: string = '/api/get-task';
+
+   formData.append('taskId', taskId);
+
+   fetch(URL, {
+      method: 'POST',
+      body: formData
+   }).then((res) => {
+         return res.json();
+   }).then((dataSet) => {
+         cb(dataSet);
+   });
+};
+
+/**
  * Add new task
  * 
  * @param reqBody 
@@ -62,4 +83,4 @@ function deleteTask(taskId: string, cb: () => void): void {
    });
 };
 
-export const API = {getTasksList, addTask, deleteTask};
+export const API = {getTasksList, addTask, deleteTask, getTask};
