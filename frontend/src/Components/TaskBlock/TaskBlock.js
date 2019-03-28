@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '../Button/Button';
 import {NavLink} from 'react-router-dom';
+import './TaskBlock.styl';
 
 /** Task block */
 export const TaskBlock = (props) => {
@@ -12,7 +13,7 @@ export const TaskBlock = (props) => {
    };
 
    return (
-      <div className="data-table-row">
+      <div className="data-table-row taskBlock">
          <Button text="Delete task" onClick={handleDeleteTask}/>
          <NavLink to={`/task/${taskId}`}><h4>{title}</h4></NavLink>
          <em>{text}</em>

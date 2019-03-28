@@ -21,8 +21,8 @@ export const TaskPage = ({match: {params: {id}}}) => {
 
    return (
       <div className="taskPage">
-         <div>{title}</div>
-         <div>{text}</div>
+         <div className="taskPage-title"><h3>{title}</h3></div>
+         <div className="taskPage-text">{text}</div>
       </div>
    );
 };
