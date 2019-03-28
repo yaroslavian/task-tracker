@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import {Table} from './Components/Table/Table';
 import {AddTaskForm} from './Components/AddTaskForm/AddTaskForm';
+import {TaskPage} from './Components/TaskPage/TaskPage';
 import './style.styl';
 
 const APP_CONTAINER = document.getElementById('app');
@@ -25,10 +26,10 @@ const App = () => {
                <h3 className="main-title">Welcome to the task tracker</h3>
             </NavLink>
             {renderTopMenu()}
-            <Route path="/add-task" component={AddTaskForm} />
             <Route path="/" exact component={Table} />
+            <Route path="/add-task" component={AddTaskForm} />
+            <Route path="/task/:id" component={TaskPage} />
          </div>
-
       </Router>
    );
 };

@@ -28,7 +28,7 @@ const getTask = (req, res) => {
          collection.find({
             _id: new mongodb.ObjectID(taskId)
          }).toArray((err, docs) => {
-            res.json(JSON.stringify(docs));
+            res.json(JSON.stringify(docs[0]));
          });
          client.close();
       });

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from '../Button/Button';
+import {NavLink} from 'react-router-dom';
 
 /** Task block */
 export const TaskBlock = (props) => {
-   const {title, text} = props;
+   const {taskId, title, text} = props;
 
    const handleDeleteTask = () => {
       props.deleteHandler(props.taskId);
@@ -13,7 +14,7 @@ export const TaskBlock = (props) => {
    return (
       <div className="data-table-row">
          <Button text="Delete task" onClick={handleDeleteTask}/>
-         <h4>{title}</h4>
+         <NavLink to={`/task/${taskId}`}><h4>{title}</h4></NavLink>
          <em>{text}</em>
       </div>
    );
