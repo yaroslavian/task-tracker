@@ -12,6 +12,9 @@ module.exports = {
          '/api': 'http://localhost:3000'
       }
    },
+   output: {
+      publicPath: '/'
+   },
    module: {
       rules: [
          {
