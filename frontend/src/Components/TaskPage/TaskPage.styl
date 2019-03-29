@@ -1,7 +1,29 @@
 .taskPage
+   display: flex
+   flex-direction: column
+   width: 30%
+   max-width 1000px
+   min-width 200px
    margin-top: 30px
+   padding: 20px
    color: #09f
+   border: 2px solid #09f
+
    &-title
       margin-bottom: 20px
    &-text
       font-style: italic
+   &-button
+      margin-top: 40px
+      background-color: #000
+      border: 2px solid #09f
+      color: #09f 
+      cursor: pointer
+      &:hover
+         background-color: #051648
+
+   &.edit-mode
+      input
+         background-color: #000
+         border: 2px solid #09f
+         color: #09f
