@@ -26,13 +26,15 @@ export const Table = () => {
 
    if(dataSet) {
       items = dataSet.map((elem, index) => {
+         const {_id, title, text, status} = elem;
          return (
             <TaskBlock
                key={index}
                deleteHandler={handleDeleteTask}
-               taskId={elem._id}
-               title={elem.title}
-               text={elem.text}
+               taskId={_id}
+               title={title}
+               text={text}
+               status={status}
             />
          );
       });
