@@ -9,7 +9,7 @@ const multer = require('multer');
 const upload = multer();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static('public'));
 

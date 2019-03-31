@@ -13,11 +13,13 @@ export const Table = () => {
    }, []);
 
    const handleDeleteTask = (taskId) => {
-      API.deleteTask(taskId, () => {
-         API.getTasksList((dataSet) => {
-            setDataSet(JSON.parse(dataSet));
+      if(confirm('Are you sure want to delete this item?')) {
+         API.deleteTask(taskId, () => {
+            API.getTasksList((dataSet) => {
+               setDataSet(JSON.parse(dataSet));
+            });
          });
-      });
+      }
    };
 
    let items = null;
